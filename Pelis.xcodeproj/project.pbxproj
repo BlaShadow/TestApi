@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		15AD171348B8633A5B8EB60B /* Pods_Pelis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9EA08E7D950559AEF652F8 /* Pods_Pelis.framework */; };
+		BF02654A231F768C0043CDD9 /* MoviesServiceClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF026549231F768C0043CDD9 /* MoviesServiceClient.swift */; };
+		BF02654C231F7E770043CDD9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02654B231F7E770043CDD9 /* Constant.swift */; };
+		BF026550231F7EE00043CDD9 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF02654F231F7EE00043CDD9 /* Movie.swift */; };
+		BF026552231F7EEE0043CDD9 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF026551231F7EEE0043CDD9 /* SortOption.swift */; };
+		BF026554231F7FCB0043CDD9 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF026553231F7FCB0043CDD9 /* DataParser.swift */; };
+		BF026556231F810F0043CDD9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF026555231F810F0043CDD9 /* Date.swift */; };
 		BF40F4EB231F578800B61749 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F4EA231F578800B61749 /* AppDelegate.swift */; };
 		BF40F4F2231F578B00B61749 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF40F4F1231F578B00B61749 /* Assets.xcassets */; };
 		BF40F4F5231F578B00B61749 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF40F4F3231F578B00B61749 /* LaunchScreen.storyboard */; };
@@ -24,6 +30,12 @@
 		4D16590CCF7640BDDF378502 /* Pods-Pelis.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelis.release.xcconfig"; path = "Target Support Files/Pods-Pelis/Pods-Pelis.release.xcconfig"; sourceTree = "<group>"; };
 		556DA644B66F355E067C0DA8 /* Pods-Pelis.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pelis.debug.xcconfig"; path = "Target Support Files/Pods-Pelis/Pods-Pelis.debug.xcconfig"; sourceTree = "<group>"; };
 		8D9EA08E7D950559AEF652F8 /* Pods_Pelis.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pelis.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF026549231F768C0043CDD9 /* MoviesServiceClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesServiceClient.swift; sourceTree = "<group>"; };
+		BF02654B231F7E770043CDD9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		BF02654F231F7EE00043CDD9 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		BF026551231F7EEE0043CDD9 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
+		BF026553231F7FCB0043CDD9 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
+		BF026555231F810F0043CDD9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		BF40F4E7231F578800B61749 /* Pelis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pelis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF40F4EA231F578800B61749 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF40F4F1231F578B00B61749 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +79,31 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		BF026548231F76690043CDD9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BF026549231F768C0043CDD9 /* MoviesServiceClient.swift */,
+				BF026553231F7FCB0043CDD9 /* DataParser.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		BF02654D231F7EAD0043CDD9 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		BF02654E231F7ED00043CDD9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				BF02654F231F7EE00043CDD9 /* Movie.swift */,
+				BF026551231F7EEE0043CDD9 /* SortOption.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
 		BF40F4DE231F578800B61749 = {
 			isa = PBXGroup;
 			children = (
@@ -88,10 +125,12 @@
 		BF40F4E9231F578800B61749 /* Pelis */ = {
 			isa = PBXGroup;
 			children = (
+				BF02654E231F7ED00043CDD9 /* Domain */,
+				BF02654D231F7EAD0043CDD9 /* Protocols */,
+				BF40F515231F74EA00B61749 /* Data */,
 				BF40F512231F6EC100B61749 /* Delegates */,
 				BF40F50E231F6A7900B61749 /* Extensions */,
 				BF40F50A231F68DB00B61749 /* Cells */,
-				BF40F507231F603B00B61749 /* New Group */,
 				BF40F500231F5A2F00B61749 /* Containers */,
 				BF40F4FC231F59C000B61749 /* Pages */,
 				BF40F4EA231F578800B61749 /* AppDelegate.swift */,
@@ -136,13 +175,6 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
-		BF40F507231F603B00B61749 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		BF40F50A231F68DB00B61749 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				BF40F510231F6A9700B61749 /* UIColorHelper.swift */,
+				BF026555231F810F0043CDD9 /* Date.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -181,6 +214,15 @@
 				BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */,
 			);
 			path = Delegates;
+			sourceTree = "<group>";
+		};
+		BF40F515231F74EA00B61749 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				BF026548231F76690043CDD9 /* Network */,
+				BF02654B231F7E770043CDD9 /* Constant.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,12 +325,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Pelis/Pods-Pelis-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -321,13 +365,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF026552231F7EEE0043CDD9 /* SortOption.swift in Sources */,
 				BF40F509231F613100B61749 /* FeedView.swift in Sources */,
+				BF02654A231F768C0043CDD9 /* MoviesServiceClient.swift in Sources */,
 				BF40F502231F5A4C00B61749 /* HomeTabBarViewController.swift in Sources */,
 				BF40F4EB231F578800B61749 /* AppDelegate.swift in Sources */,
 				BF40F50D231F690E00B61749 /* MovieCollectionViewCell.swift in Sources */,
 				BF40F505231F5AF600B61749 /* FavoritesViewController.swift in Sources */,
 				BF40F514231F6F4E00B61749 /* MoviesCollectionHandler.swift in Sources */,
+				BF02654C231F7E770043CDD9 /* Constant.swift in Sources */,
+				BF026556231F810F0043CDD9 /* Date.swift in Sources */,
 				BF40F4FE231F59DD00B61749 /* FeedViewController.swift in Sources */,
+				BF026554231F7FCB0043CDD9 /* DataParser.swift in Sources */,
+				BF026550231F7EE00043CDD9 /* Movie.swift in Sources */,
 				BF40F511231F6A9700B61749 /* UIColorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,4 +8,5 @@ target 'Pelis' do
   # Pods for Pelis
   pod 'Realm'
   pod 'SwiftLint'
+  pod 'Alamofire'
 end
