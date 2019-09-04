@@ -14,6 +14,10 @@
 		BF40F4FE231F59DD00B61749 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F4FD231F59DD00B61749 /* FeedViewController.swift */; };
 		BF40F502231F5A4C00B61749 /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F501231F5A4C00B61749 /* HomeTabBarViewController.swift */; };
 		BF40F505231F5AF600B61749 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F504231F5AF600B61749 /* FavoritesViewController.swift */; };
+		BF40F509231F613100B61749 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F508231F613100B61749 /* FeedView.swift */; };
+		BF40F50D231F690E00B61749 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F50C231F690E00B61749 /* MovieCollectionViewCell.swift */; };
+		BF40F511231F6A9700B61749 /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F510231F6A9700B61749 /* UIColorHelper.swift */; };
+		BF40F514231F6F4E00B61749 /* MoviesCollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		BF40F4FD231F59DD00B61749 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		BF40F501231F5A4C00B61749 /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
 		BF40F504231F5AF600B61749 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		BF40F508231F613100B61749 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
+		BF40F50C231F690E00B61749 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
+		BF40F510231F6A9700B61749 /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
+		BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,10 @@
 		BF40F4E9231F578800B61749 /* Pelis */ = {
 			isa = PBXGroup;
 			children = (
+				BF40F512231F6EC100B61749 /* Delegates */,
+				BF40F50E231F6A7900B61749 /* Extensions */,
+				BF40F50A231F68DB00B61749 /* Cells */,
+				BF40F507231F603B00B61749 /* New Group */,
 				BF40F500231F5A2F00B61749 /* Containers */,
 				BF40F4FC231F59C000B61749 /* Pages */,
 				BF40F4EA231F578800B61749 /* AppDelegate.swift */,
@@ -103,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				BF40F4FD231F59DD00B61749 /* FeedViewController.swift */,
+				BF40F508231F613100B61749 /* FeedView.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -121,6 +134,53 @@
 				BF40F504231F5AF600B61749 /* FavoritesViewController.swift */,
 			);
 			path = Favorites;
+			sourceTree = "<group>";
+		};
+		BF40F507231F603B00B61749 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		BF40F50A231F68DB00B61749 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BF40F50B231F68EE00B61749 /* MovieCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		BF40F50B231F68EE00B61749 /* MovieCell */ = {
+			isa = PBXGroup;
+			children = (
+				BF40F50C231F690E00B61749 /* MovieCollectionViewCell.swift */,
+			);
+			path = MovieCell;
+			sourceTree = "<group>";
+		};
+		BF40F50E231F6A7900B61749 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BF40F50F231F6A8300B61749 /* Helpers */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BF40F50F231F6A8300B61749 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				BF40F510231F6A9700B61749 /* UIColorHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		BF40F512231F6EC100B61749 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */,
+			);
+			path = Delegates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +321,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF40F509231F613100B61749 /* FeedView.swift in Sources */,
 				BF40F502231F5A4C00B61749 /* HomeTabBarViewController.swift in Sources */,
 				BF40F4EB231F578800B61749 /* AppDelegate.swift in Sources */,
+				BF40F50D231F690E00B61749 /* MovieCollectionViewCell.swift in Sources */,
 				BF40F505231F5AF600B61749 /* FavoritesViewController.swift in Sources */,
+				BF40F514231F6F4E00B61749 /* MoviesCollectionHandler.swift in Sources */,
 				BF40F4FE231F59DD00B61749 /* FeedViewController.swift in Sources */,
+				BF40F511231F6A9700B61749 /* UIColorHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
