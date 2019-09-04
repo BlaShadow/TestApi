@@ -9,7 +9,7 @@
 import UIKit
 
 class MoviesCollectionHandler: NSObject {
-  private var items: [AnyObject] = []
+  private var items: [Movie] = []
   private weak var collectionView: UICollectionView?
   private let numberOfItemsPerRow = 3
   private let marginValue: CGFloat = 10
@@ -25,7 +25,7 @@ class MoviesCollectionHandler: NSObject {
     collectionView?.dataSource = self
   }
 
-  func update(movies moviesItems: [AnyObject]) {
+  func update(movies moviesItems: [Movie]) {
     items += moviesItems
 
     collectionView?.reloadData()
@@ -43,7 +43,12 @@ extension MoviesCollectionHandler: UICollectionViewDataSource {
 
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: movieCellIdentifier, for: indexPath)
-    cell.backgroundColor = UIColor.red
+
+    guard let cellMovie = cell as? MovieCollectionViewCell else {
+      return cell
+    }
+
+    cellMovie.setupDataCell(with: items[indexPath.row])
 
     return cell
   }

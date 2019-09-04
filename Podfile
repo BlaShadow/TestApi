@@ -9,4 +9,5 @@ target 'Pelis' do
   pod 'Realm'
   pod 'SwiftLint'
   pod 'Alamofire'
+  pod 'Nuke'
 end

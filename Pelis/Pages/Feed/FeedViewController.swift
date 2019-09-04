@@ -25,7 +25,11 @@ class FeedViewController: UIViewController {
       feedView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
       feedView.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
     ])
-    
-    MoviesServiceClient.retrieveMovies()
+
+    MoviesResponseHandler.retrieveMovies { [weak self] movies in
+      if let movies = movies {
+        self?.movieCollectionHandler?.update(movies: movies)
+      }
+    }
   }
 }

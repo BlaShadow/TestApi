@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.8.2)
+  - Nuke (7.6)
   - Realm (3.14.1):
     - Realm/Headers (= 3.14.1)
   - Realm/Headers (3.14.1)
@@ -7,20 +8,23 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Nuke
   - Realm
   - SwiftLint
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Nuke
     - Realm
     - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Nuke: aa1c6a5919b543debe814530881f2fccb58c26d4
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
 
-PODFILE CHECKSUM: 97100472c094c67f03522464394a6345912fd011
+PODFILE CHECKSUM: adf1b1517f797e970377a9cac15eadcb3104c8c8
 
 COCOAPODS: 1.6.1

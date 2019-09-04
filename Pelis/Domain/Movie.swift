@@ -17,9 +17,17 @@ class Movie: NSObject {
   let popularity: Double
   let backdropImagePath: String
   let posterImagePath: String
-  
-  init(identifier: Int64, title: String, overview: String, releaseDate: Date, movieScore: Double, backdropImage: String, posterImage: String, popularity: Double) {
-    
+
+  init(identifier: Int64,
+       title: String,
+       overview: String,
+       releaseDate: Date,
+       movieScore: Double,
+       backdropImage: String,
+       posterImage: String,
+       popularity: Double
+    ) {
+
     self.identifier = identifier
     self.title = title
     self.overview = overview
@@ -29,19 +37,15 @@ class Movie: NSObject {
     self.posterImagePath = posterImage
     self.popularity = popularity
   }
-  
-  var backDropImageUrl : String {
-    get {
-      return String(format: "https://image.tmdb.org/t/p/w780%@", self.backdropImagePath)
-    }
+
+  var backDropImageUrl: String {
+    return String(format: "https://image.tmdb.org/t/p/w780%@", self.backdropImagePath)
   }
-  
+
   var posterImageUrl: String {
-    get {
-      return String(format: "https://image.tmdb.org/t/p/w500%@", self.posterImagePath)
-    }
+    return String(format: "https://image.tmdb.org/t/p/w500%@", self.posterImagePath)
   }
-  
+
   enum CodingKeys: String, CodingKey {
     case identifier, title, overview, releaseDate, movieScore, backdropImagePath, posterImagePath, popularity
   }
