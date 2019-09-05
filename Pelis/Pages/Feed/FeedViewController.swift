@@ -19,6 +19,7 @@ class FeedViewController: UIViewController {
     movieCollectionHandler = MoviesCollectionHandler(collectionView: feedView.collectionView)
 
     view.addSubview(feedView)
+
     NSLayoutConstraint.activate([
       feedView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
       feedView.heightAnchor.constraint(equalTo: self.view.heightAnchor),

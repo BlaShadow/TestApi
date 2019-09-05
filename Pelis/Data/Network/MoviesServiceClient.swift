@@ -22,7 +22,7 @@ class MoviesServiceClient: NSObject {
       "api_key": Constants.Api.movieApiKey
     ]
 
-    Alamofire.request(url, parameters: parameters, encoding: JSONEncoding.default)
+    Alamofire.request(url, parameters: parameters, encoding: URLEncoding(destination: .queryString))
       .responseJSON(completionHandler: { response in
         guard let jsonData = response.value as? [String: Any] else {
           return

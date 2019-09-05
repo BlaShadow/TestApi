@@ -10,6 +10,8 @@ import UIKit
 import Nuke
 
 class MovieCollectionViewCell: UICollectionViewCell {
+  private weak var movie: Movie?
+
   let containerView: UIView = {
     let view = UIView(frame: .zero)
 
@@ -30,6 +32,15 @@ class MovieCollectionViewCell: UICollectionViewCell {
     return imageView
   }()
 
+  let favoriteIcon: UIImageView = {
+    let imageView = UIImageView(frame: .zero)
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.image = UIImage(named: "FavoriteIconLine")
+    imageView.isUserInteractionEnabled = true
+
+    return imageView
+  }()
+
   override init(frame: CGRect) {
     super.init(frame: frame)
 
@@ -40,8 +51,10 @@ class MovieCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func setupDataCell(with movie: Movie) {
-    let posterImageUrl = URL(string: movie.posterImageUrl)
+  func setupDataCell(with movieParam: Movie) {
+    movie = movieParam
+
+    let posterImageUrl = URL(string: movieParam.posterImageUrl)
 
     if let posterImageUrl = posterImageUrl {
       Nuke.loadImage(with: posterImageUrl, into: posterImageView)
@@ -66,5 +79,32 @@ class MovieCollectionViewCell: UICollectionViewCell {
       posterImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
       posterImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
     ])
+
+    containerView.addSubview(favoriteIcon)
+
+    NSLayoutConstraint.activate([
+      favoriteIcon.widthAnchor.constraint(equalToConstant: 20),
+      favoriteIcon.heightAnchor.constraint(equalToConstant: 20),
+      favoriteIcon.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
+      favoriteIcon.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5)
+    ])
+
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(favoriteIconTapped))
+    favoriteIcon.addGestureRecognizer(tapGesture)
+  }
+
+  @objc private func favoriteIconTapped() {
+    if let movie = movie {
+      movie.favorite = !movie.favorite
+      favoriteIcon.image = imageForFavoriteValue(movie.favorite)
+    }
+  }
+
+  private func imageForFavoriteValue(_ value: Bool) -> UIImage? {
+    if value {
+      return UIImage(named: "FavoriteIconFilled")
+    }
+
+    return UIImage(named: "FavoriteIconLine")
   }
 }

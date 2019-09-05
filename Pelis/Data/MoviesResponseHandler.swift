@@ -16,7 +16,9 @@ class MoviesResponseHandler: NSObject {
         return completion(nil)
       }
 
-      completion(DataParser().parseListOfMovies(rawData: rawResult))
+      DispatchQueue.main.async {
+        completion(DataParser().parseListOfMovies(rawData: rawResult))
+      }
     }
   }
 }

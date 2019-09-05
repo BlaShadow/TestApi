@@ -18,6 +18,9 @@ class Movie: NSObject {
   let backdropImagePath: String
   let posterImagePath: String
 
+  var favorite = false
+  var watchList = false
+
   init(identifier: Int64,
        title: String,
        overview: String,
