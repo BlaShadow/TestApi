@@ -44,6 +44,10 @@ class Movie: Object {
     self.popularity = popularity
   }
 
+  override static func primaryKey() -> String? {
+    return "identifier"
+  }
+
   var backDropImageUrl: String {
     return String(format: "https://image.tmdb.org/t/p/w780%@", self.backdropImagePath)
   }
