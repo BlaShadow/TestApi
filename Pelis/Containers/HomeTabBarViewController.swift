@@ -13,15 +13,28 @@ class HomeTabBarViewController: UITabBarController {
     super.viewDidLoad()
   }
 
+  @objc func nice() {
+    print("Working great!")
+  }
+
   func setupTabBarController() {
+
     let feedController = FeedViewController(nibName: nil, bundle: nil)
     let feedIcon = UIImage(named: "MoviesTabBarIcon")
-    feedController.tabBarItem = UITabBarItem(title: "Feed", image: feedIcon, tag: 0)
+    feedController.tabBarItem = UITabBarItem(title: "", image: feedIcon, tag: 0)
+    feedController.edgesForExtendedLayout = []
+
+    let navigation1 = UINavigationController(rootViewController: feedController)
+    navigation1.navigationBar.topItem?.title = "Movies"
 
     let favoritesController = FavoritesViewController(nibName: nil, bundle: nil)
     let favoriteIcon = UIImage(named: "FavoritesTabBarIcon")
-    favoritesController.tabBarItem = UITabBarItem(title: "Favorites", image: favoriteIcon, tag: 0)
+    favoritesController.tabBarItem = UITabBarItem(title: "", image: favoriteIcon, tag: 0)
+    favoritesController.edgesForExtendedLayout = []
 
-    self.viewControllers = [feedController, favoritesController]
+    let navigation2 = UINavigationController(rootViewController: favoritesController)
+    navigation2.navigationBar.topItem?.title = "Favorites"
+
+    self.viewControllers = [navigation1, navigation2]
   }
 }
