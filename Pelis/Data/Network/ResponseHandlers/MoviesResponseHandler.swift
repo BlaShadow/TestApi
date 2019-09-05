@@ -10,6 +10,12 @@ import UIKit
 
 class MoviesResponseHandler: NSObject {
   static func retrieveMovies(with completion: @escaping (_ items: [Movie]?) -> Void) {
+    let movies = DatabaseManager.shared.retrieveData(filter: {_ in true})
+
+    if movies.count > 0, let movies = movies as? [Movie] {
+      return completion(movies)
+    }
+
     MoviesServiceClient.retrieveMovies { (_, rawResult) in
 
       guard let rawResult = rawResult else {
