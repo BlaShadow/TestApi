@@ -26,7 +26,7 @@ class MoviesCollectionHandler: NSObject {
   }
 
   func update(movies moviesItems: [Movie]) {
-    items += moviesItems
+    items = moviesItems
 
     collectionView?.reloadData()
   }
@@ -67,6 +67,21 @@ extension MoviesCollectionHandler: UICollectionViewDataSource {
 }
 
 extension MoviesCollectionHandler: UICollectionViewDelegate {
+  func collectionView(_ collectionView: UICollectionView, didHighlightItemAt indexPath: IndexPath) {
+    UIView.animate(withDuration: 0.2, delay: 0.0, options: .curveEaseIn, animations: {
+      if let cell = collectionView.cellForItem(at: indexPath) {
+        cell.contentView.transform = .init(scaleX: 0.95, y: 0.95)
+      }
+    })
+  }
+
+  func collectionView(_ collectionView: UICollectionView, didUnhighlightItemAt indexPath: IndexPath) {
+    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseOut, animations: {
+      if let cell = collectionView.cellForItem(at: indexPath) {
+        cell.contentView.transform = CGAffineTransform.identity
+      }
+    })
+  }
 }
 
 extension MoviesCollectionHandler: UICollectionViewDelegateFlowLayout {
@@ -82,13 +97,11 @@ extension MoviesCollectionHandler: UICollectionViewDelegateFlowLayout {
 
 extension MoviesCollectionHandler: MovieCellActionResponderProtocol {
   func didTapFavoriteIcon(movie: Movie) {
-    DatabaseManager.shared.update {
-      movie.favorite = !movie.favorite
+    DatabaseManager.shared.setFavoriteMovie(movie: movie, value: !movie.favorite)
 
-      if let collectionView = collectionView {
-        let index = items.firstIndex(of: movie) ?? 0
-        collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
-      }
+    if let collectionView = collectionView {
+      let index = items.firstIndex(of: movie) ?? 0
+      collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
     }
   }
 }
