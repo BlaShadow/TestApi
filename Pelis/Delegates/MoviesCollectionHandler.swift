@@ -48,7 +48,7 @@ extension MoviesCollectionHandler: UICollectionViewDataSource {
       return cell
     }
 
-    cellMovie.setupDataCell(with: items[indexPath.row])
+    cellMovie.setupDataCell(responder: self, with: items[indexPath.row])
 
     return cell
   }
@@ -77,5 +77,18 @@ extension MoviesCollectionHandler: UICollectionViewDelegateFlowLayout {
     let widthPerItem = Double(availableWidth) / Double(numberOfItemsPerRow)
 
     return CGSize(width: widthPerItem, height: widthPerItem)
+  }
+}
+
+extension MoviesCollectionHandler: MovieCellActionResponderProtocol {
+  func didTapFavoriteIcon(movie: Movie) {
+    DatabaseManager.shared.update {
+      movie.favorite = !movie.favorite
+
+      if let collectionView = collectionView {
+        let index = items.firstIndex(of: movie) ?? 0
+        collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+      }
+    }
   }
 }

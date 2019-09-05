@@ -16,8 +16,13 @@ class MoviesResponseHandler: NSObject {
         return completion(nil)
       }
 
+      let movies = DataParser().parseListOfMovies(rawData: rawResult)
+
+      movies.forEach({ (movie) in
+        DatabaseManager.shared.create(item: movie)
+      })
       DispatchQueue.main.async {
-        completion(DataParser().parseListOfMovies(rawData: rawResult))
+        completion(movies)
       }
     }
   }

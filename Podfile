@@ -7,6 +7,7 @@ target 'Pelis' do
 
   # Pods for Pelis
   pod 'Realm'
+  pod 'RealmSwift'
   pod 'SwiftLint'
   pod 'Alamofire'
   pod 'Nuke'

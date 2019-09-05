@@ -7,29 +7,32 @@
 //
 
 import UIKit
+import RealmSwift
 
-class Movie: NSObject {
-  let identifier: Int64
-  let title: String
-  let overview: String
-  let releaseDate: Date
-  let movieScore: Double
-  let popularity: Double
-  let backdropImagePath: String
-  let posterImagePath: String
+class Movie: Object {
+  @objc dynamic var identifier: Int64 = 0
+  @objc dynamic var title: String = ""
+  @objc dynamic var overview: String = ""
+  @objc dynamic var releaseDate: Date = Date()
+  @objc dynamic var movieScore: Double = 0.0
+  @objc dynamic var popularity: Double = 0.0
+  @objc dynamic var backdropImagePath: String = ""
+  @objc dynamic var posterImagePath: String = ""
 
-  var favorite = false
-  var watchList = false
+  @objc dynamic var favorite = false
+  @objc dynamic var watchList = false
 
-  init(identifier: Int64,
-       title: String,
-       overview: String,
-       releaseDate: Date,
-       movieScore: Double,
-       backdropImage: String,
-       posterImage: String,
-       popularity: Double
-    ) {
+  convenience init(
+    identifier: Int64,
+    title: String,
+    overview: String,
+    releaseDate: Date,
+    movieScore: Double,
+    backdropImage: String,
+    posterImage: String,
+    popularity: Double
+  ) {
+    self.init()
 
     self.identifier = identifier
     self.title = title

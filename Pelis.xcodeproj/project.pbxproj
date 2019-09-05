@@ -25,6 +25,7 @@
 		BF40F50D231F690E00B61749 /* MovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F50C231F690E00B61749 /* MovieCollectionViewCell.swift */; };
 		BF40F511231F6A9700B61749 /* UIColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F510231F6A9700B61749 /* UIColorHelper.swift */; };
 		BF40F514231F6F4E00B61749 /* MoviesCollectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */; };
+		BFDD55742320A895007A26B0 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFDD55732320A895007A26B0 /* DatabaseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		BF40F50C231F690E00B61749 /* MovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		BF40F510231F6A9700B61749 /* UIColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorHelper.swift; sourceTree = "<group>"; };
 		BF40F513231F6F4E00B61749 /* MoviesCollectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesCollectionHandler.swift; sourceTree = "<group>"; };
+		BFDD55732320A895007A26B0 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		BF026548231F76690043CDD9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BFDD55722320A7F8007A26B0 /* ResponseHandlers */,
 				BF026549231F768C0043CDD9 /* MoviesServiceClient.swift */,
 				BF026553231F7FCB0043CDD9 /* DataParser.swift */,
 			);
@@ -221,11 +224,27 @@
 		BF40F515231F74EA00B61749 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				BFDD55712320A7ED007A26B0 /* Database */,
 				BF026548231F76690043CDD9 /* Network */,
 				BF02654B231F7E770043CDD9 /* Constant.swift */,
-				BF026557231FE5E10043CDD9 /* MoviesResponseHandler.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		BFDD55712320A7ED007A26B0 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				BFDD55732320A895007A26B0 /* DatabaseManager.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		BFDD55722320A7F8007A26B0 /* ResponseHandlers */ = {
+			isa = PBXGroup;
+			children = (
+				BF026557231FE5E10043CDD9 /* MoviesResponseHandler.swift */,
+			);
+			path = ResponseHandlers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +350,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -339,6 +359,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -370,6 +391,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFDD55742320A895007A26B0 /* DatabaseManager.swift in Sources */,
 				BF026558231FE5E10043CDD9 /* MoviesResponseHandler.swift in Sources */,
 				BF026552231F7EEE0043CDD9 /* SortOption.swift in Sources */,
 				BF40F509231F613100B61749 /* FeedView.swift in Sources */,

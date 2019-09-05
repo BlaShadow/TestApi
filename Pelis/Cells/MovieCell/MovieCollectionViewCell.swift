@@ -9,8 +9,13 @@
 import UIKit
 import Nuke
 
+protocol MovieCellActionResponderProtocol {
+  func didTapFavoriteIcon(movie: Movie)
+}
+
 class MovieCollectionViewCell: UICollectionViewCell {
   private weak var movie: Movie?
+  private var actionResponder: MovieCellActionResponderProtocol?
 
   let containerView: UIView = {
     let view = UIView(frame: .zero)
@@ -51,8 +56,11 @@ class MovieCollectionViewCell: UICollectionViewCell {
     fatalError("init(coder:) has not been implemented")
   }
 
-  func setupDataCell(with movieParam: Movie) {
+  func setupDataCell(responder: MovieCellActionResponderProtocol, with movieParam: Movie) {
+    actionResponder = responder
     movie = movieParam
+
+    favoriteIcon.image = imageForFavoriteValue(movieParam.favorite)
 
     let posterImageUrl = URL(string: movieParam.posterImageUrl)
 
@@ -94,9 +102,13 @@ class MovieCollectionViewCell: UICollectionViewCell {
   }
 
   @objc private func favoriteIconTapped() {
-    if let movie = movie {
-      movie.favorite = !movie.favorite
-      favoriteIcon.image = imageForFavoriteValue(movie.favorite)
+    if let movie = movie, let responder = actionResponder {
+      responder.didTapFavoriteIcon(movie: movie)
+
+      DatabaseManager.shared.update {
+        movie.favorite = !movie.favorite
+        favoriteIcon.image = imageForFavoriteValue(movie.favorite)
+      }
     }
   }
 
